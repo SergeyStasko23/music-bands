@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/music_block
+    username: postgres
+    password: 666
+  jpa:
+    generate-ddl: false
+    show-sql: false
+    properties:
+      hibernate:
+        ddl-auto: none
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db-migrations/changelog.xml
+  main:
+    allow-bean-definition-overriding: true

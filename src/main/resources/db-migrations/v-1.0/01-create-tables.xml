@@ -1,0 +1,66 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="sergey.stasko" dbms="postgresql">
+        <createTable tableName="music_block">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="music_block"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="sergey.stasko" dbms="postgresql">
+        <createTable tableName="band">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+            <column name="genre" type="VARCHAR"/>
+            <column name="created_date" type="DATE"/>
+            <column name="music_block_id" type="BIGINT">
+                <constraints foreignKeyName="music_block_id" references="music_block(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="band"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="sergey.stasko" dbms="postgresql">
+        <createTable tableName="album">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+            <column name="created_date" type="DATE"/>
+            <column name="band_id" type="BIGINT">
+                <constraints foreignKeyName="band_id" references="band(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="album"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="sergey.stasko" dbms="postgresql">
+        <createTable tableName="musician">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+            <column name="band_id" type="BIGINT">
+                <constraints foreignKeyName="band_id" references="band(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="musician"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

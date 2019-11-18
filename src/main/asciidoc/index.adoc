@@ -1,0 +1,29 @@
+= "Music Bands" API Documentation
+Sergey Stasko<heathamm23@gmail.com>
+1.0.0, 17/11/2019
+:toc: left
+:sectnums:
+
+== Оглавление
+Spring REST Docs
+
+== Bands API
+CRUD API для управление музыкальными группами в этом приложении
+
+=== Поиск группы по идентификатору
+Получение группы по идентификатору
+
+==== Пример запроса
+include::{snippets}/bands/find-by-id/http-request.adoc[]
+
+==== Пример ответа
+include::{snippets}/bands/find-by-id/http-response.adoc[]
+
+==== CURL-запрос
+include::{snippets}/bands/find-by-id/curl-request.adoc[]
+
+==== Параметры запроса
+include::{snippets}/bands/find-by-id/path-parameters.adoc[]
+
+==== Поля ответа
+include::{snippets}/bands/find-by-id/response-fields.adoc[]

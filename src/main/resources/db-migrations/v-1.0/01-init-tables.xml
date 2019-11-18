@@ -1,0 +1,95 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="1" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="music_block">
+            <column name="name" value="Swedish bands"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="music_block"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="band">
+            <column name="name" value="Amon Amarth"/>
+            <column name="genre" value="Swedish melodic death metal"/>
+            <column name="created_date" value="1992-01-01"/>
+            <column name="music_block_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="band"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="album">
+            <column name="name" value="Versus the World"/>
+            <column name="created_date" value="2002-01-01"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="album"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="4" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="album">
+            <column name="name" value="Twilight of the Thunder God"/>
+            <column name="created_date" value="2008-01-01"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="album"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="5" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="album">
+            <column name="name" value="Surtur Rising"/>
+            <column name="created_date" value="2011-01-01"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="album"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="6" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="musician">
+            <column name="name" value="Йохан Хегг"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="musician"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="7" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="musician">
+            <column name="name" value="Олави Микконен"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="musician"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="8" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="musician">
+            <column name="name" value="Тэд Лундстрём"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="musician"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="9" author="sergey.stasko" dbms="postgresql">
+        <insert tableName="musician">
+            <column name="name" value="Джок Валлгрен"/>
+            <column name="band_id" value="1"/>
+        </insert>
+        <rollback>
+            <dropTable tableName="musician"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

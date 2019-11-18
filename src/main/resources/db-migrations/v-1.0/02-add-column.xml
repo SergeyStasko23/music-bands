@@ -1,0 +1,15 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="sergey.stasko" dbms="postgresql">
+        <addColumn tableName="music_block">
+            <column name="new_column" type="VARCHAR"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="music_block" columnName="new_column"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

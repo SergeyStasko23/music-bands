@@ -1,0 +1,12 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="classpath:db-migrations/v-1.0/01-create-tables.xml"/>
+    <include file="classpath:db-migrations/v-1.0/01-init-tables.xml"/>
+    <include file="classpath:db-migrations/v-1.0/02-add-column.xml"/>
+    <include file="classpath:db-migrations/v-1.0/03-delete-column.xml"/>
+    <include file="classpath:db-migrations/v-1.0/04-add-update-cascade.xml"/>
+</databaseChangeLog>
